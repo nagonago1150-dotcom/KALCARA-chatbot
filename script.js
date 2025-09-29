@@ -20,8 +20,12 @@ class KalcalaChatbot {
             '/2': 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi4e9lzv5vxl'
         };
 
+        const finalUrl = redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi41ruivpeep';
+        console.log('Current path:', path);
+        console.log('Redirect URL:', finalUrl);
+
         // パスに対応するURLがあれば返す、なければデフォルトURL
-        return redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi41ruivpeep';
+        return finalUrl;
     }
     
     init() {
