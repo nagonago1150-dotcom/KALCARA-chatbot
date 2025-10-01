@@ -15,16 +15,31 @@ class KalcalaChatbot {
     // パス別リダイレクトURL設定
     getRedirectUrl() {
         const path = window.location.pathname;
+
+        // ★★★ デバッグログ：現在のパスを確認 ★★★
+        console.log('=== KALCALA リダイレクトデバッグ ===');
+        console.log('現在のパス:', path);
+        console.log('URL全体:', window.location.href);
+
+        // 販売リンク対応表（クライアントから追加リンクが届き次第、ここに追加）
         const redirectUrls = {
             '/1': 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi41ruivpeep',
             '/2': 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi4e9lzv5vxl'
+            // 新しいパスはここに追加してください
+            // 例: '/3': 'https://example.com/link3'
         };
 
-        const finalUrl = redirectUrls[path] || 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi41ruivpeep';
-        console.log('Current path:', path);
-        console.log('Redirect URL:', finalUrl);
+        // デフォルトURL（対応するパスがない場合）
+        const defaultUrl = 'https://sf-system.jp/link.php?i=pi41sh02hwpy&m=mi41ruivpeep';
 
-        // パスに対応するURLがあれば返す、なければデフォルトURL
+        // パスに対応するURLを取得、なければデフォルトURL
+        const finalUrl = redirectUrls[path] || defaultUrl;
+
+        // ★★★ デバッグログ：最終的な遷移先を確認 ★★★
+        console.log('遷移先URL:', finalUrl);
+        console.log('対応表:', redirectUrls);
+        console.log('=====================================');
+
         return finalUrl;
     }
     
