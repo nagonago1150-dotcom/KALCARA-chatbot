@@ -610,14 +610,20 @@ document.addEventListener('DOMContentLoaded', function() {
     new InteractiveFeatures();
     
     // グローバルイベントリスナーは削除（各ボタンに直接イベントを設定）
-    
+
+    // メインCTAボタンで購入ページへ遷移（動的リダイレクト）
+    document.getElementById('main-cta-button').addEventListener('click', function(e) {
+        e.preventDefault();
+        chatbot.redirectToPurchase();
+    });
+
     // 相談ボタンでチャットボットを開く
     document.getElementById('consultation-trigger').addEventListener('click', function(e) {
         e.preventDefault();
         chatbot.openChat();
         chatbot.showInitialMessage();
     });
-    
+
     // ヒーローセクションの相談ボタンでチャットボットを開く
     document.getElementById('hero-consultation-trigger').addEventListener('click', function(e) {
         e.preventDefault();
